@@ -1,0 +1,17 @@
+body{
+    background-color: lightpink;
+
+}
+
+h1{
+    font-family: cursive;
+}
+
+.container{
+    background: white;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 20px 15px 30px 25px;
+}
