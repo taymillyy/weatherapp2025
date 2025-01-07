@@ -6,7 +6,7 @@ function displayWeather(response){
      humidity.innerHTML = response.data.temperature.humidity;
 
      let windSpeed = document.querySelector("#wind");
-     windSpeed.innerHTML = Math.round(response.data.wind.speed);
+     windSpeed.innerHTML = Math.round(response.data.wind.speed) + " mph";
   
 }
 function displayCity (city){
