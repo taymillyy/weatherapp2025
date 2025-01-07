@@ -10,20 +10,30 @@
     <div class="container">
 <header>
     
-<form >
-    <input type="text" placeholder"Enter a city"/>
-    <input type="submit" value="Search" />
+<form  class="search-form">
+    <input  type="text"  placeholder="Enter a city..." class="search-input">
+    <input type="submit" value="Search" class="submit-button"  />
     </form>
 </header>
 <main>
-<h1>
+    <div class="weather-data">
+    <div>
+<h1 class="weather-city">
     Paris
 </h1>
-<p>
+<p class="weather-details">
     Monday 20:30, few clouds
-    Humidity: 82%, Wind: 7.72km/h 
+    <br>
+    Humidity: <strong>82% </strong>, Wind: <strong> 7.72km/h </strong> 
    
 </p>
+</div>
+<div class="weather-temperature"> 
+    <div class="weather-icon">☁️</div>
+   <div class="weather-number"> 6 </div>
+    <div class="weather-degree">°C </div>
+</div>
+</div>
 </main>
 <footer>
  This project was coded by <a href="https://github.com/taymillyy"> Tamar Thompson </a>, is open-sourced on <a href="https://github.com/taymillyy/weatherapp2025"> GitHub </a>
