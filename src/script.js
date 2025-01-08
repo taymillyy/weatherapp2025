@@ -21,8 +21,9 @@ function displayWeather(response){
      let date = new Date(response.data.time  * 1000);
      currentTime.innerHTML = displayDate(date);
 
+     // Get and display weather icon
      let icon =document.querySelector("#icon");
-     icon.innerHTML = `<img src="${response.data.condition.icon_url}" id = "icon" />`;
+     icon.innerHTML = `<img src="${response.data.condition.icon_url}" id="icon" />`;
     
     }
 
