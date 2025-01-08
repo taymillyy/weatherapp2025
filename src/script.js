@@ -20,8 +20,11 @@ function displayWeather(response){
      let currentTime = document.querySelector("#current-time");
      let date = new Date(response.data.time  * 1000);
      currentTime.innerHTML = displayDate(date);
-}
 
+     let icon =document.querySelector("#icon");
+     icon.innerHTML = `<img src="${response.data.condition.icon_url}" id = "icon" />`;
+    
+    }
 
 // Function to display current date and time in the format "Day, Hours:Minutes" 
 function displayDate(date){
