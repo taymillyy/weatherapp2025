@@ -65,29 +65,39 @@ displayCity("Chicago");
 
 // Function to display weather forecast for the next 5 days
 function displayForecast(response){
+    console.log(response.data);
 
-let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
 let foreHtml = "";
 
 // Add forecast for the next 5 days
 
-days.forEach(function (day) {
+response.data.daily.forEach(function (day, index) {
+   if (index < 5) {
     foreHtml = foreHtml +
       ` 
     <div class="forcast-day">
-     <div class="weather-date"> ${day} </div>
-      <div class="forcast-icon">  🌤️  </div>
+     <div class="weather-date"> ${formatDate(day.time)}</div>
+      <div > 
+      <img src="${day.condition.icon_url}" class="forcast-icon"/>
+        </div>
       <div class="weather-temp">
-       <div class="weather-temps"> <strong>15° </strong> </div>
-       <div class="weather-temps"> 9° </div>
+       <div class="weather-temps"> <strong> ${Math.round(day.temperature.maximum)}° </strong> 
+       </div>
+       <div class="weather-temps"> ${Math.round(day.temperature.minimum)}°
+       </div>
          </div>
  </div>
  `;
-});
+}});
 let forecastElement = document.querySelector("#forecast");
-forecastElement.innerHTML = foreHtml;
+forecastElement.innerHTML = foreHtml
 }
 
+function formatDate(timestamp){
+let date = new Date(timestamp * 1000);
+let day =["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+return day[date.getDay()];
+}
 // Call the function to display the weather forecast for the next 5 days
 displayForecast();
 
