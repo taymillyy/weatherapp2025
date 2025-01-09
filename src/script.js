@@ -60,3 +60,31 @@ form.addEventListener("submit", showCity);
 
 // Display weather for Chicago by default 
 displayCity("Chicago");
+
+// Function to display weather forecast for the next 5 days
+function displayForecast(){
+
+let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
+let foreHtml = "";
+
+// Add forecast for the next 5 days
+
+days.forEach(function (day) {
+    foreHtml = foreHtml +
+      ` 
+    <div class="forcast-day">
+     <div class="weather-date"> ${day} </div>
+      <div class="forcast-icon">  🌤️  </div>
+      <div class="weather-temp">
+       <div class="weather-temps"> <strong>15° </strong> </div>
+       <div class="weather-temps"> 9° </div>
+         </div>
+ </div>
+ `;
+});
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = foreHtml;
+}
+
+// Call the function to display the weather forecast for the next 5 days
+displayForecast();
