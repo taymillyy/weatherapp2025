@@ -25,6 +25,8 @@ function displayWeather(response){
      let icon =document.querySelector("#icon");
      icon.innerHTML = `<img src="${response.data.condition.icon_url}" id="icon" />`;
     
+
+     getForecast(response.data.city);
     }
 
 // Function to display current date and time in the format "Day, Hours:Minutes" 
@@ -62,7 +64,7 @@ form.addEventListener("submit", showCity);
 displayCity("Chicago");
 
 // Function to display weather forecast for the next 5 days
-function displayForecast(){
+function displayForecast(response){
 
 let days = ["Tues", "Wed", "Thu", "Fri", "Sat"];
 let foreHtml = "";
@@ -88,3 +90,9 @@ forecastElement.innerHTML = foreHtml;
 
 // Call the function to display the weather forecast for the next 5 days
 displayForecast();
+
+function getForecast(city){
+    let apiKey = "ae7b90f5bo7b8e38ebb290dt472f4b1b";
+    let apiUrl= `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+axios.get(apiUrl).then(displayForecast);
+}
